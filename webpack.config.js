@@ -11,7 +11,7 @@ module.exports = {
     devServer: {
         hot: true,
         static: {
-            directoty: './dist',
+            //directoty: './dist',
             watch: true
         }
     }

@@ -16,7 +16,17 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n\r\n\r\n\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/slider */ \"./modules/slider.js\");\n/* harmony import */ var _modules_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/services */ \"./modules/services.js\");\n/* harmony import */ var _modules_accordeon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accordeon */ \"./modules/accordeon.js\");\n/* harmony import */ var _modules_scrollUp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/scrollUp */ \"./modules/scrollUp.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\r\n(0,_modules_services__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\r\n(0,_modules_accordeon__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\r\n(0,_modules_scrollUp__WEBPACK_IMPORTED_MODULE_5__[\"default\"])();\r\n\n\n//# sourceURL=webpack:///./index.js?");
+
+/***/ }),
+
+/***/ "./modules/accordeon.js":
+/*!******************************!*\
+  !*** ./modules/accordeon.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst accordeon = () => {\r\n    const selection = document.querySelector(\".accordeon-section\");\r\n    const accElements = selection.querySelectorAll(\".element\");\r\n    const elements = document.querySelectorAll(\".element\");\r\n\r\n    const handleMenu = e =>{\r\n        closeAccordion();\r\n\r\n        const element = e.target.parentNode;\r\n        const title = element.querySelector(\".title\");\r\n        const content = element.querySelector(\".element-content\");\r\n        \r\n        element.classList.toggle(\"active\");\r\n        title.classList.toggle(\"active\");\r\n\r\n        content.style.display = \"block\";\r\n    };\r\n\r\n    const closeAccordion = () => {\r\n        accElements.forEach(acc => {\r\n            let title = acc.querySelector(\".title\");\r\n            let content = acc.querySelector(\".element-content\");\r\n\r\n            acc.classList.remove(\"active\");\r\n            title.classList.remove(\"active\");\r\n            content.style.display = \"none\";\r\n        });\r\n    };\r\n\r\n\r\n    selection.addEventListener(\"click\", e => {\r\n        //console.log(\"selection\");\r\n        if(e.target.closest(\".title\")){\r\n            handleMenu(e);            \r\n        }\r\n    });\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (accordeon);\n\n//# sourceURL=webpack:///./modules/accordeon.js?");
 
 /***/ }),
 
@@ -36,7 +46,37 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n//\"use strick\";\r\n\r\nconst modal = () => {\r\n    //const modWind = document.querySelector(\"div[class='modal-callback']\");\r\n    //const backWind = document.querySelector(\"div.modal-overlay\");\r\n\r\n    const modWind = document.getElementById(\"callback\");\r\n    console.log(\"Bdika\");\r\n    console.log(document.body);\r\n    console.log(modWind);\r\n    //console.log(backWind);\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);\n\n//# sourceURL=webpack:///./modules/modal.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\"use strick\";\r\n\r\nconst modal = () => {\r\n    const modWind = document.querySelector(\"div[class='modal-callback']\");\r\n    const backWind = document.querySelector(\".modal-overlay\");\r\n    \r\n    const modalCallback = document.querySelector(\".modal-callback\");\r\n    const main = document.querySelector(\".main-wrapper\");\r\n\r\n    const handleMenu = e =>{\r\n        e.preventDefault();\r\n        backWind.style.display = \"block\";\r\n        modWind.style.display = \"block\";\r\n\r\n    }; \r\n\r\n    const closeMenu = e =>{\r\n        e.preventDefault();\r\n        backWind.style.display = \"none\";\r\n        modWind.style.display = \"none\";\r\n    }; \r\n\r\n    main.addEventListener(\"click\", e => {\r\n        if(e.target.closest(\".callback-btn\")){\r\n            handleMenu(e);            \r\n        }\r\n        \r\n    });\r\n\r\n    modalCallback.addEventListener(\"click\", e => {\r\n        if(e.target.closest(\".modal-close\")){\r\n            closeMenu(e);\r\n        }\r\n    });\r\n\r\n    backWind.addEventListener(\"click\", e => {\r\n         closeMenu(e);\r\n    });\r\n\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);\n\n//# sourceURL=webpack:///./modules/modal.js?");
+
+/***/ }),
+
+/***/ "./modules/scrollUp.js":
+/*!*****************************!*\
+  !*** ./modules/scrollUp.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst scrollUp = () => {\r\n    const arr = document.querySelector(\".up\");\r\n    console.log(arr);\r\n\r\n    arr.addEventListener(\"click\", e => {\r\n        let aim = document.querySelector(\".main-wrapper\");\r\n        aim.scrollIntoView({behavior: \"smooth\"});\r\n    });\r\n\r\n    // window.addEventListener('scroll', e => {\r\n    //     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {\r\n    //         arr.style.display = \"none\";\r\n    //     }\r\n    //     else{\r\n    //         arr.style.display = \"block\";\r\n    //     }\r\n    // });\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrollUp);\n\n//# sourceURL=webpack:///./modules/scrollUp.js?");
+
+/***/ }),
+
+/***/ "./modules/services.js":
+/*!*****************************!*\
+  !*** ./modules/services.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst services = () =>{\r\n    //const servBlock;\r\n    \r\n    const selection = document.querySelector(\".quest-section\");\r\n    const modWind = document.querySelector(\"div[class='modal-callback']\");\r\n    const backWind = document.querySelector(\".modal-overlay\");\r\n\r\n       const handleMenu = e =>{\r\n        e.preventDefault();\r\n        backWind.style.display = \"block\";\r\n        modWind.style.display = \"block\";\r\n\r\n    }; \r\n\r\n    const closeMenu = e =>{\r\n        e.preventDefault();\r\n        backWind.style.display = \"none\";\r\n        modWind.style.display = \"none\";\r\n    }; \r\n\r\n    selection.addEventListener(\"click\", e => {\r\n        if(e.target.closest(\".button-services\")){\r\n            handleMenu(e);            \r\n        }\r\n    });\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (services);\n\n//# sourceURL=webpack:///./modules/services.js?");
+
+/***/ }),
+
+/***/ "./modules/slider.js":
+/*!***************************!*\
+  !*** ./modules/slider.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst slider = () => {\r\n    const sliderBlock = document.querySelector(\".top-slider\");\r\n    const slides = document.querySelectorAll(\".item\");\r\n\r\n//    console.log(sliderBlock);\r\n  //  console.log(slides.length);\r\n\r\n    let currentSlide = 0;\r\n    let interval;\r\n    //let timeInterval = 2000;\r\n\r\n    const prevSlide = (elements, index, strClass) => {\r\n        elements[index].classList.remove(strClass);\r\n        //elements[index].classList.add(\"table\");\r\n        elements[index].style.display = \"none\";\r\n    };\r\n\r\n    const nextSlide = (elements, index, strClass) => {\r\n        elements[index].classList.add(strClass);\r\n        //elements[index].classList.remove(\"table\");\r\n        elements[index].style.display = \"block\";\r\n    };\r\n\r\n    const autoSlide = () => {\r\n        prevSlide(slides, currentSlide, \"table.active\");\r\n        //prevSlide(dots, currentSlide, \"dot-active\");\r\n        currentSlide++;\r\n\r\n        if(currentSlide >= slides.length){\r\n            currentSlide = 0;\r\n        }\r\n        nextSlide(slides, currentSlide, \"table.active\");\r\n        //nextSlide(dots, currentSlide, \"dot-active\");\r\n    };\r\n\r\n    const startSlide = (timer = 3000) => {\r\n        // if(dots.length == 0){\r\n        //     addDots();\r\n        // }\r\n        interval = setInterval(autoSlide, timer);\r\n    };\r\n\r\n    const stopSlide = () => {\r\n        clearInterval(interval);\r\n    };\r\n\r\n    startSlide(3000);\r\n\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slider);\n\n//# sourceURL=webpack:///./modules/slider.js?");
 
 /***/ })
 
