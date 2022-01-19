@@ -36,4 +36,4 @@ const accordeon = () => {
     });
 };
 
-export default accordeon
+export default accordeon;

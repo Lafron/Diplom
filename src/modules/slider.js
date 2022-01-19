@@ -1,5 +1,5 @@
 const slider = () => {
-    const sliderBlock = document.querySelector(".top-slider");
+    //const sliderBlock = document.querySelector(".top-slider");
     const slides = document.querySelectorAll(".item");
 
 //    console.log(sliderBlock);
@@ -11,13 +11,13 @@ const slider = () => {
 
     const prevSlide = (elements, index, strClass) => {
         elements[index].classList.remove(strClass);
-        //elements[index].classList.add("table");
+        elements[index].classList.add("table");
         elements[index].style.display = "none";
     };
 
     const nextSlide = (elements, index, strClass) => {
         elements[index].classList.add(strClass);
-        //elements[index].classList.remove("table");
+        elements[index].classList.remove("table");
         elements[index].style.display = "block";
     };
 

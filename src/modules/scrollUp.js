@@ -1,6 +1,6 @@
 const scrollUp = () => {
     const arr = document.querySelector(".up");
-    console.log(arr);
+//    console.log(arr);
 
     arr.addEventListener("click", e => {
         let aim = document.querySelector(".main-wrapper");
