@@ -12,11 +12,11 @@ const services = () =>{
 
     }; 
 
-    const closeMenu = e =>{
-        e.preventDefault();
-        backWind.style.display = "none";
-        modWind.style.display = "none";
-    }; 
+    // const closeMenu = e =>{
+    //     e.preventDefault();
+    //     backWind.style.display = "none";
+    //     modWind.style.display = "none";
+    // }; 
 
     selection.addEventListener("click", e => {
         if(e.target.closest(".button-services")){
