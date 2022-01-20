@@ -13,14 +13,11 @@ const sendForm = () => {
     const validate = list =>{
         let success = true;
 
-        let k = 0;
         list.forEach(input => {
             if(input.name == "fio"){ 
                 if(input.value == ""){
                     console.log("введите ваше имя");
-                    k++;
                     success = false;
-                    console.log(k);
                     return success;
                 }                    
                 const letters = /^[А-Яа-яёЁ]+$/;
