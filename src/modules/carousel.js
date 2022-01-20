@@ -8,9 +8,9 @@ const carousel = () => {
 
     const handleMenu = e =>{
         e.preventDefault();
+
         backWind.style.display = "block";
         modWind.style.display = "block";
-
     }; 
 
     let currentSlide = 0;
@@ -40,11 +40,8 @@ const carousel = () => {
 
         rowServices.replaceChild(arrElem[1], arrElem[2]);
         rowServices.prepend(elements[index]);
-
     };
 
-
-    
     arrow.addEventListener("click", e => {
         e.preventDefault();
 
@@ -71,7 +68,7 @@ const carousel = () => {
     });
 
     rowServices.addEventListener("click", e => {
-        if(e.target.closest(".col-sm-6")){
+        if(e.target.closest("a")){
             handleMenu(e);            
         }
     });

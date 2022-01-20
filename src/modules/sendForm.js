@@ -34,7 +34,6 @@ const sendForm = () => {
     };
 
     const sendForm = data => {
-        console.log("sendForm", data);
         return fetch("https://jsonplaceholder.typicode.com/posts", {
             method: "POST",
             body: JSON.stringify(data),
