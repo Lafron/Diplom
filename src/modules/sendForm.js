@@ -13,8 +13,16 @@ const sendForm = () => {
     const validate = list =>{
         let success = true;
 
+        let k = 0;
         list.forEach(input => {
-            if(input.name == "fio"){                
+            if(input.name == "fio"){ 
+                if(input.value == ""){
+                    console.log("введите ваше имя");
+                    k++;
+                    success = false;
+                    console.log(k);
+                    return success;
+                }                    
                 const letters = /^[А-Яа-яёЁ]+$/;
                 if(!input.value.match(letters)){
                     success = false;
@@ -22,6 +30,11 @@ const sendForm = () => {
                 }    
             }
             else if(input.name == 'tel'){
+                if(input.value == ""){
+                    console.log("введите номер телефона");
+                    success = false;
+                    return success;
+                }
                 const letters = /[^0-9\+]+$/;
                 if(input.value.match(letters)){
                     success = false;
@@ -29,7 +42,6 @@ const sendForm = () => {
                 }
             }
         });
-
         return success;
     };
 
@@ -75,7 +87,7 @@ const sendForm = () => {
             });
         }
         else{
-            alert("данные невалидны!");
+            console.log("данные невалидны!");
         }
     };
    

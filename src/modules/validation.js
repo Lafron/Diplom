@@ -1,16 +1,9 @@
 const validation = () => {
     const form = document.querySelector("form");
-
     const formElems = form.querySelectorAll("input");
 
-    // calcInputArr.forEach(input => {
-    //     input.addEventListener("input", e => {
-    //         e.target.value = e.target.value.replace(/\D+/, "");
-    //     });
-    // });
-
     formElems.forEach(input => {
-            if(input.name == "fio"){                
+            if(input.name == "fio"){           
                 const letters =/[^А-Яа-яёЁ]+$/;
                 input.addEventListener("input", e => {
                     e.target.value = e.target.value.replace(letters, "");
