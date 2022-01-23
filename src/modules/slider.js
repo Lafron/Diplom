@@ -7,26 +7,26 @@ const slider = () => {
     //let timeInterval = 2000;
 
     const prevSlide = (elements, index, strClass) => {
-        elements[index].classList.remove(strClass);
-        //elements[index].classList.add("table");
+        elements[index].classList.toggle(strClass);
+        //elements[index].classList.toggle("table");
         elements[index].style.display = "none";
     };
 
     const nextSlide = (elements, index, strClass) => {
-        elements[index].classList.add(strClass);
-        //elements[index].classList.remove("table");
+        elements[index].classList.toggle(strClass);
+        //elements[index].classList.toggle("table");
         elements[index].style.display = "block";
     };
 
     const autoSlide = () => {
-        prevSlide(slides, currentSlide, "table.active");
+        prevSlide(slides, currentSlide, "active");
         //prevSlide(dots, currentSlide, "dot-active");
         currentSlide++;
 
         if(currentSlide >= slides.length){
             currentSlide = 0;
         }
-        nextSlide(slides, currentSlide, "table.active");
+        nextSlide(slides, currentSlide, "active");
         //nextSlide(dots, currentSlide, "dot-active");
     };
 

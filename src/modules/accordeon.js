@@ -1,7 +1,6 @@
 const accordeon = () => {
     const selection = document.querySelector(".accordeon-section");
     const accElements = selection.querySelectorAll(".element");
-    const elements = document.querySelectorAll(".element");
 
     const handleMenu = e =>{
         closeAccordion();
@@ -29,7 +28,6 @@ const accordeon = () => {
 
 
     selection.addEventListener("click", e => {
-        //console.log("selection");
         if(e.target.closest(".title")){
             handleMenu(e);            
         }

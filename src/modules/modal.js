@@ -24,6 +24,14 @@ const modal = () => {
 
     const closeMenu = e =>{
         e.preventDefault();
+
+        formElems.forEach(input => {
+            let div = input.parentNode.querySelector("div");
+            if(div!=null){
+                div.remove();
+            }
+        });
+        
         backWind.style.display = "none";
         modWind.style.display = "none";
         

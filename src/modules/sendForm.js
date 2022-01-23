@@ -14,29 +14,48 @@ const sendForm = () => {
         let success = true;
 
         list.forEach(input => {
+            let div = input.parentNode.querySelector("div");
+            if(div!=null){
+                div.remove();
+            }
+            
+            let errDiv = document.createElement("div");
+            errDiv.textContent = "";
+            input.before(errDiv);
+
             if(input.name == "fio"){ 
                 if(input.value == ""){
-                    console.log("введите ваше имя");
+                    errDiv.textContent = "введите ваше имя";                    
                     success = false;
                     return success;
-                }                    
-                const letters = /^[А-Яа-яёЁ]+$/;
-                if(!input.value.match(letters)){
-                    success = false;
-                    return success;
-                }    
+                } 
+                else {
+                    input.parentNode.querySelector("div").remove();
+                    errDiv.textContent = "";         
+                    const letters = /^[А-Яа-яёЁ]+$/;
+                    if(!input.value.match(letters)){
+                        success = false;
+                        return success;
+                    }
+                }       
+                    
             }
             else if(input.name == 'tel'){
                 if(input.value == ""){
-                    console.log("введите номер телефона");
+                    errDiv.textContent = "введите номер телефона";
                     success = false;
                     return success;
                 }
-                const letters = /[^0-9\+]+$/;
-                if(input.value.match(letters)){
-                    success = false;
-                    return success;
+                else{
+                    input.parentNode.querySelector("div").remove();
+                    errDiv.textContent = "";
+                    const letters = /[^0-9\+]+$/;
+                    if(input.value.match(letters)){
+                        success = false;
+                        return success;
+                    }    
                 }
+                
             }
         });
         return success;
@@ -84,7 +103,7 @@ const sendForm = () => {
             });
         }
         else{
-            console.log("данные невалидны!");
+            //console.log("данные невалидны!");
         }
     };
    

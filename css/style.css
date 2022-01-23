@@ -1080,7 +1080,7 @@ video#video_background {
 	}
 }
 
-@media only screen and {
+@media only screen and (max-width: 992px) {
 	.top-slider .item {
 		height: 520px;
 	}
@@ -1102,7 +1102,7 @@ video#video_background {
 	}
 
 	.top-slider .table.active {
-		webkit-transform: scale(1);
+		-webkit-transform: scale(1);
 		-ms-transform: scale(1);
 		-o-transform: scale(1);
 		transform: scale(1);
@@ -1412,7 +1412,7 @@ video#video_background {
 	background-color: rgba(0, 0, 0, 0.6);
 }
 
-@media only screen {
+@media only screen and (max-width: 767px) {
 	.services-elements>.row>hr:nth-of-type(2n) {
 		clear: none;
 	}
